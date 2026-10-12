@@ -1,0 +1,37 @@
+ =====================================================================
+ Power BI Data Modeling
+ All measures live in the "total" table.
+ =====================================================================
+
+
+ =====================================================================
+ 1. SALES METRICS
+ Source: fact_sales (grain = one row per order line)
+ =====================================================================
+
+ Total revenue from all order lines
+ total_sales = SUM(fact_sales[line_total])
+
+ Number of unique orders (distinct count, because the table is line-grain)
+ total_orders = DISTINCTCOUNT(fact_sales[order_id])
+
+
+ =====================================================================
+ 2. CUSTOMER METRICS
+ Sources: dim_customer, fact_sales
+ =====================================================================
+
+ All customers in the customer dimension
+ base_total_customers = COUNT(dim_customer[Customer_Id])
+
+ Customers who have placed orders (counted by bill-to city key)
+ totalactive_costomers = DISTINCTCOUNT(fact_sales[billtothecity_key])
+
+
+ =====================================================================
+ 3. FULFILLMENT METRICS
+ Source: fact_order_fullfillment (accumulating snapshot, one row per order)
+ =====================================================================
+
+ Average days from order date to payment date
+ avg_order_to_pay_days = AVERAGE(fact_order_fullfillment[order_to_pay])
