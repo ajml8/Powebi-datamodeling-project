@@ -35,7 +35,7 @@ This project shows how dimensional modeling fixes each of these.
 | Facts | `fact_sales`, `fact_order_fulfillment`, `fact_inventory`, `fact_campaign_spend`, `fact_promotion_coverage`, `fact_sales_target` |
 | Support | `support` (security mapping for RLS), `total` (measures table) |
 
-![Model view](docs/images/report_view.png)
+![Model view](docs/images/modelimage.png)
 
 ### Special table patterns used
 
