@@ -50,7 +50,7 @@ This project shows how dimensional modeling fixes each of these.
 
 ## 3. Before vs. After
 
-**Before (23 raw tables):** see [docs/source_tables.md](docs/source_tables.md)
+**Before (23 raw tables):** 
 
 **After:** galaxy schema.
 
@@ -72,28 +72,25 @@ erDiagram
     dim_date ||--o{ fact_sales_target : month
 ```
 
-## 4. Data Issues Solved
 
-Full list with fixes: [docs/data_issues.md](docs/data_issues.md).
-
-## 5. Power Query Standards
+## 4. Power Query Standards
 
 - Folder groups: `01_Stage`, `02_Dimensions`, `03_Facts`, `04_Support`
 - Stage queries have **Enable load** turned off
 - `snake_case` names, prefixes `dim_` and `fact_`, surrogate keys end in `_key`
 - Cleaning: remove unneeded columns (`hash_key`, `source_id`, notes), deduplicate, unpivot, split delimiters, append yearly tables
 
-## 6. DAX
+## 5. DAX
 
-Measures live in the `total` table. Reference code: [dax/measures.dax](dax/measures.dax).
+Measures live in the `total` table. Reference code: [dax/measures.dax](dax/dax).
 
 KPIs on the report: Total Sales, Total Orders, Active Customers, Total Customers, Avg Order-to-Pay Days.
 
-## 7. Security (RLS)
+## 6. Security (RLS)
 
-Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping table (user email to region). See [dax/measures.dax](dax/measures.dax).
+Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping table (user email to region). 
 
-## 8. Repository Structure
+## 7. Repository Structure
 
 ```
 .
@@ -102,11 +99,7 @@ Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping 
 ├── .gitignore
 ├── data/
 │   ├── raw/raw_tables.xlsx        # 23 source tables
-│   └── processed/                 # optional cleaned exports
 ├── docs/
-│   ├── data_dictionary.md
-│   ├── data_issues.md
-│   ├── source_tables.md
 │   └── images/                    # screenshots
 ├── dax/
 │   └── measures.dax
@@ -114,7 +107,7 @@ Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping 
     └── ultimate_project.pbix
 ```
 
-## 9. How to Run
+## 8. How to Run
 
 1. Clone the repo.
 2. Open `power-bi-template/ultimate_project.pbix` in Power BI Desktop.
@@ -122,7 +115,7 @@ Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping 
 4. Click **Refresh**.
 5. Open **Model view** to see the schema, and **Manage roles** to test RLS with *View as*.
 
-## 10. Build Steps (summary)
+## 9. Build Steps (summary)
 
 1. Load all 23 sheets into `01_Stage`, with load disabled.
 2. Clean each stage query (types, trim, remove duplicates).
@@ -134,7 +127,7 @@ Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping 
 8. Add RLS roles and test.
 9. Build the report page.
 
-## 11. Key Learnings
+## 10. Key Learnings
 
 - Decide the **grain** before building any table.
 - Never join fact to fact. Use shared dimensions.
@@ -142,17 +135,10 @@ Dynamic row-level security with `USERPRINCIPALNAME()` and the `support` mapping 
 - Keep measures in one table.
 - Clean in Power Query, not in DAX.
 
-## 12. Learn More
-
-- SQLBI (sqlbi.com)
-- Microsoft Learn (Power BI star schema guidance)
-- Kimball Group (dimensional modeling techniques)
-- DAX Guide (dax.guide)
-
-## 13. License
+## 11. License
 
 MIT. See [LICENSE](LICENSE).
 
-## 14. Connect
+## 12. Connect
 
 Muhammed Ajmal M C · https://www.linkedin.com/in/mdajmalakd
