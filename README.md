@@ -50,7 +50,7 @@ This project shows how dimensional modeling fixes each of these.
 
 ## 3. Before vs. After
 
-**Before (23 raw tables):** 
+**Before (23 raw tables):** ![Model view](docs/images/beforeimg.png)
 
 **After:** galaxy schema.
 
