@@ -1,6 +1,6 @@
 # Powebi-datamodeling-project
 Power BI data modeling: from a 23-table mess to a clean Galaxy schema.
-# Power BI Data Modeling: Zero to Hero (The Nightmare Dataset Challenge)
+# Power BI Data Modeling
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-Data%20Modeling-F2C811?logo=powerbi&logoColor=black)
 ![DAX](https://img.shields.io/badge/DAX-Measures-blue)
@@ -35,7 +35,7 @@ This project shows how dimensional modeling fixes each of these.
 | Facts | `fact_sales`, `fact_order_fulfillment`, `fact_inventory`, `fact_campaign_spend`, `fact_promotion_coverage`, `fact_sales_target` |
 | Support | `support` (security mapping for RLS), `total` (measures table) |
 
-![Model view]("C:\Users\vhk\OneDrive\Desktop\Documents\imagesbi\modelimage.png")
+![Model view](docs/images/report_view.png)
 
 ### Special table patterns used
 
